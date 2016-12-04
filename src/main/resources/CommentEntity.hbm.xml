@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.humeniuk.domain.Comment" table="comment" schema="" catalog="on_wheels_db">
+        <id name="idComment">
+            <column name="id_comment" sql-type="int unsigned" not-null="true"/>
+        </id>
+        <property name="idAuthor">
+            <column name="id_author" sql-type="int unsigned" not-null="true"/>
+        </property>
+        <property name="commentText">
+            <column name="comment_text" sql-type="text" length="65535"/>
+        </property>
+        <property name="date">
+            <column name="date" sql-type="date" not-null="true"/>
+        </property>
+        <property name="rating">
+            <column name="rating" sql-type="int" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

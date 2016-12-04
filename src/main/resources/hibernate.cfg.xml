@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="connection.url">jdbc:mysql://localhost:4444/on_wheels_db</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">admin</property>
+        <property name="connection.password">qwerty123</property>
+
+        <!-- NOTE that after automapping with IDEA property username and password will delete -->
+        <!--and will be:  Initial SessionFactory failedorg.hibernate.service.spi.ServiceException: Unable to create requested service-->
+
+        <mapping class="com.humeniuk.domain.Category"/>
+        <mapping resource="CategoryEntity.hbm.xml"/>
+
+        <mapping class="com.humeniuk.domain.Comment"/>
+        <mapping resource="CommentEntity.hbm.xml"/>
+
+        <mapping class="com.humeniuk.domain.Deal"/>
+        <mapping resource="DealEntity.hbm.xml"/>
+
+        <mapping class="com.humeniuk.domain.Person"/>
+        <mapping resource="PersonEntity.hbm.xml"/>
+
+        <mapping class="com.humeniuk.domain.Transport"/>
+        <mapping resource="TransportEntity.hbm.xml"/>
+
+               <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>
