@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Hibernate, spring hello");
-
+/*
         ApplicationContext jpaContext = new ClassPathXmlApplicationContext(
                 "jpaContext.xml");
 
@@ -22,8 +22,13 @@ public class Main {
        System.out.println(Arrays.toString(appContext.getBeanDefinitionNames()));
         System.out.println(Arrays.toString(jpaContext.getBeanDefinitionNames()));
         CategoryManager categoryManager = (CategoryManager) jpaContext.getBean("categoryManagerImpl");
+*/
 
-        List<Category> list = categoryManager.getAllCategories();
+        ApplicationContext appContext = new ClassPathXmlApplicationContext(
+                "appContext.xml");
+        CategoryManager categoryManager = (CategoryManager) appContext.getBean("categoryManagerImpl");
+
+List<Category> list = categoryManager.getAllCategories();
         System.out.println("Category count: " + list.size());
 
 
