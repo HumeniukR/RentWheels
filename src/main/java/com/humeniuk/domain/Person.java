@@ -16,7 +16,7 @@ public class Person {
     private String lastName;
     private String email;
     private String phone;
-    private Integer idAdress;
+    private String password;
 
     @Id
     @Column(name = "id_person", nullable = false, insertable = true, updatable = true)
@@ -70,13 +70,13 @@ public class Person {
     }
 
     @Basic
-    @Column(name = "id_adress", nullable = true, insertable = true, updatable = true)
-    public Integer getIdAdress() {
-        return idAdress;
+    @Column(name = "password", nullable = true, insertable = true, updatable = true, length = 30)
+    public String getPassword() {
+        return password;
     }
 
-    public void setIdAdress(Integer idAdress) {
-        this.idAdress = idAdress;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
@@ -88,7 +88,7 @@ public class Person {
 
         if (idPerson != that.idPerson) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
-        if (idAdress != null ? !idAdress.equals(that.idAdress) : that.idAdress != null) return false;
+        if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (lastName != null ? !lastName.equals(that.lastName) : that.lastName != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (phone != null ? !phone.equals(that.phone) : that.phone != null) return false;
@@ -103,7 +103,7 @@ public class Person {
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (phone != null ? phone.hashCode() : 0);
-        result = 31 * result + (idAdress != null ? idAdress.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
         return result;
     }
 }
